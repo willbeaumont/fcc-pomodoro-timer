@@ -6,6 +6,14 @@ function App() {
       <header>
         <h1>Pomodoro Timer</h1>
       </header>
+      <body>
+        <div>
+          <label id="break-label">Break Length</label>
+        </div>
+        <div>
+          <label id="session-label">Session Length</label>
+        </div>
+      </body>
       <footer>
         Will Beaumont &copy; 2022
       </footer>
