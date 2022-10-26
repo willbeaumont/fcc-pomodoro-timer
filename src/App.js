@@ -1,24 +1,29 @@
+import { useState } from 'react';
 import './App.css';
 
+function TimerGroup(props) {
+  return (
+    <div>
+      <label id={props.idPrefix + "-label"}>{props.message}</label>
+      <button id={props.idPrefix + "-increment"} class="timer">&uarr;</button>
+      <div id={props.idPrefix + "-length"}>{props.time}</div>
+      <button id={props.idPrefix + "-decrement"} class="timer">&darr;</button>
+    </div>
+  )
+}
+
 function App() {
+  const [breakTime, setBreakTime] = useState(5);
+  const [sessionTime, setSessionTime] = useState(25);
+
   return (
     <div className="App">
       <header>
         <h1>Pomodoro Timer</h1>
       </header>
       <body>
-        <div>
-          <label id="break-label">Break Length</label>
-          <button id="break-increment" class="adjustTimer">&uarr;</button>
-          <div id="break-length"></div>
-          <button id="break-decrement" class="adjustTimer">&darr;</button>
-        </div>
-        <div>
-          <label id="session-label">Session Length</label>
-          <button id="session-increment" class="adjustTimer">&uarr;</button>
-          <div id="session-length"></div>
-          <button id="session-decrement" class="adjustTimer">&darr;</button>
-        </div>
+        <TimerGroup idPrefix="break" time={breakTime} message="Break Length" />
+        <TimerGroup idPrefix="session" time={sessionTime} message="Session Length" />
       </body>
       <footer>
         Will Beaumont &copy; 2022
